@@ -4,14 +4,15 @@ public:
         if(x < 0){
             return false;
         }
+
         long rem = 0;
         int temp = x;
 
         while(temp != 0){
             int b = (temp % 10);
             rem = (rem * 10) + b;
-            temp = temp / 10;
+            temp /= 10;
         }
-        return (rem == x);
+        return rem == x;
     }
 };
