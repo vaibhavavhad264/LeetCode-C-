@@ -5,11 +5,12 @@ public:
             return false;
         }
         long rem = 0;
-        long num = x;
+        int temp = x;
 
-        while(num != 0){
-            rem = (rem * 10) + (num % 10);
-            num = num / 10;
+        while(temp != 0){
+            int b = (temp % 10);
+            rem = (rem * 10) + b;
+            temp = temp / 10;
         }
         return (rem == x);
     }
