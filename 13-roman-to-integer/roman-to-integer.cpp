@@ -12,7 +12,7 @@ public:
             {'M' , 1000}
         };
 
-        for(int i = 0; i < s.size(); i++){
+        for(int i = 0; i < s.size() - 1; i++){
             if(mp[s[i]] < mp[s[i + 1]]){
                 ans -= mp[s[i]];
             }
@@ -20,6 +20,6 @@ public:
                 ans += mp[s[i]];
             }
         }
-        return ans;
+        return ans + mp[s[s.size() - 1]];
     }
 };
