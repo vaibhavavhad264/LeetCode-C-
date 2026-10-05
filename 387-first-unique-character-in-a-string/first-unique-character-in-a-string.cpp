@@ -10,8 +10,7 @@ public:
             if(len[s[i]] == 1){ 
                 return i; 
             }
-        } // Closes the for-loop
-        
-        return -1; // Properly inside the function now!
-    } // Closes the firstUniqChar function
-}; // Closes the Solution class
+        } 
+        return -1; 
+    } 
+}; 
