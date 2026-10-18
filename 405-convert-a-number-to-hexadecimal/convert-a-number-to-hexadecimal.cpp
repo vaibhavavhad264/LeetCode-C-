@@ -7,9 +7,9 @@ public:
 
         unsigned int n = num;
         while(n > 0){
-            int fnd = n & 15;
+            int fnd = n % 16;
             ans = hexCode[fnd] + ans;
-            n >>= 4;
+            n /= 16;
         } 
        
         return ans;
