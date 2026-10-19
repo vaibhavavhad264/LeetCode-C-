@@ -8,7 +8,7 @@ public:
         for(int i = 1; i < prices.size(); i++){
             int curr_profit = prices[i] - min_price;
             if(curr_profit > profit) profit = curr_profit;
-            min_price = min(min_price, prices[i]);
+            if(min_price > prices[i]) min_price = prices[i];
         }
         return profit;
     }
