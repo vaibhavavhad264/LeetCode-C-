@@ -7,15 +7,16 @@ class Solution{
 public:
     int noOfBeams(vector<string>& bank){
         int prev = 0;
-        int res = 0;
+        int sum = 0;
+        
+        for(int i =0; i < bank.size(); i++){
+            int curr = count(bank[i].begin(), bank[i].end(), '1');
+            if(curr == 0) continue;
 
-        for(int i = 0 ; i < bank.size(); i++){
-            int currnt = count(bank[i].begin(), bank[i].end(), '1');
-            if(currnt == 0) continue;
-            res += prev * currnt;
-            prev = currnt;
+            sum += curr * prev;
+            prev = curr;
         }
-        return res;
+        return sum;
     }
 };
 
@@ -25,7 +26,7 @@ int main(){
         "01101",
         "00000",
         "011000",
-        "01000"
+        "00000"
     };
 
     cout << s1.noOfBeams(str);
