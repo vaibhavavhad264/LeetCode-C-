@@ -1,10 +1,11 @@
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int left = 0;
+        int left = 0; 
         int right = nums.size() - 1;
         return findMini(nums, left, right);
     }
+
     int findMini(vector<int>& nums, int left, int right){
         if(left == right) return nums[left];
         int mid = left + (right - left) / 2;
