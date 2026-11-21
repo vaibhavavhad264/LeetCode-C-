@@ -10,6 +10,5 @@ public:
         int mid = left + (right - left) / 2;
         if(nums[mid] > nums[right]) return findMini(nums, mid + 1, right);
         else return findMini(nums, left, mid);
-        
     }
 };
