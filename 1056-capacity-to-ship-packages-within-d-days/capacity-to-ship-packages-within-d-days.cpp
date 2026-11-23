@@ -1,19 +1,17 @@
 class Solution {
 public:
     int shipWithinDays(vector<int>& weights, int days) {
-        int maxi = 0;
-        int mini = 1;
+        int minCap = 0;
+        int maxCap = 0;
         for(int weight : weights){
-            maxi += weight;
-            mini = max(mini, weight);
+            minCap = max(minCap, weight);
+            maxCap += weight;
         }
 
-        while(mini < maxi){
-            int mid = mini + (maxi - mini) / 2;
-
-            int sum = 0;
+        while(minCap < maxCap){
+            int mid = minCap + (maxCap - minCap) / 2;
             int day = 1;
-
+            int sum = 0;
             for(int weight : weights){
                 if(sum + weight > mid){
                     day++;
@@ -21,9 +19,9 @@ public:
                 }
                 sum += weight;
             }
-            if(day > days) mini = mid + 1;
-            else maxi = mid;
+            if(day > days) minCap = mid + 1;
+            else maxCap = mid;
         }
-        return mini;
+        return maxCap;
     }
 };
