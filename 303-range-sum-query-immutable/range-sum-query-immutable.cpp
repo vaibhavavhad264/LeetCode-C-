@@ -2,10 +2,10 @@ class NumArray {
 public:
     vector<int> prefixSum;
     NumArray(vector<int>& nums) {
-        int curr = 0;
+        int sum = 0;
         for(int num : nums){
-            curr += num;
-            prefixSum.push_back(curr);
+            sum += num;
+            prefixSum.push_back(sum);
         }
     }
     
