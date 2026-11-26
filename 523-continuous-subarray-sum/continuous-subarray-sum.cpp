@@ -1,15 +1,14 @@
 class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) {
-        int n = nums.size(), prefSum = 0;
-        unordered_map<int, int> firstOcc;
-        firstOcc[0] = 0;
-        for(int i = 0; i < n; i++){
-            prefSum = (prefSum + nums[i]) % k;
-            if(firstOcc.count(prefSum)){
-                if(i + 1 - firstOcc[prefSum] >= 2) return true;
+        int prefixSum = 0;
+        unordered_map<int, int> find{{{0, 0}}};
+        for(int i = 0; i < nums.size(); i++){
+            prefixSum = (prefixSum + nums[i]) % k;
+            if(find.count(prefixSum)){
+                if(i + 1 - find[prefixSum] >= 2) return true;
             }
-            else firstOcc[prefSum] = i + 1;
+            else find[prefixSum] = i + 1;
         }
         return false;
     }
