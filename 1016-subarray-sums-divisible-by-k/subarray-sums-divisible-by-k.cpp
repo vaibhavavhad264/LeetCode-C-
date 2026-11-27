@@ -1,15 +1,16 @@
 class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
-        int prevSum = 0;
-        int ans = 0;
-        unordered_map<int, int> find{};
-        find[0] = 1;
+        
+        unordered_map<int, int> findIn;
+        findIn[0] = 1;
+        int leftSum = 0;
+        int count = 0;
         for(int num : nums){
-            prevSum = ((prevSum + num) % k + k) % k;
-            ans += find[prevSum];
-            find[prevSum]++;
+            leftSum = ((leftSum + num) % k + k) % k; 
+            count += findIn[leftSum];
+            findIn[leftSum]++;
         }
-        return ans; 
+        return count;
     }
 };
